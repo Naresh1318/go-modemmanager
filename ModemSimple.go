@@ -135,6 +135,11 @@ func (ms modemSimple) Connect(properties SimpleProperties) (Bearer, error) {
 		field := st.Field(i)
 		tag := field.Tag.Get("json")
 		value := v.Field(i).Interface()
+
+		if tag == "rm-protocol" {
+			continue
+		}
+
 		// if v.Field(i).IsZero() {
 		// 	continue
 		// }
