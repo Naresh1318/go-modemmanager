@@ -135,12 +135,15 @@ func (ms modemSimple) Connect(properties SimpleProperties) (Bearer, error) {
 		field := st.Field(i)
 		tag := field.Tag.Get("json")
 		value := v.Field(i).Interface()
-		if v.Field(i).IsZero() {
-			continue
-		}
+		// if v.Field(i).IsZero() {
+		// 	continue
+		// }
 		myMap[tag] = value
 	}
 	var path dbus.ObjectPath
+
+	fmt.Println(myMap)
+
 	err := ms.callWithReturn(&path, ModemSimpleConnect, &myMap)
 	if err != nil {
 		return nil, err
