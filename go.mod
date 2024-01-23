@@ -1,4 +1,4 @@
-module github.com/maltegrosse/go-modemmanager
+module github.com/Naresh1318/go-modemmanager
 
 go 1.13
 
